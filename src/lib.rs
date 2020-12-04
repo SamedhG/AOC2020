@@ -23,6 +23,14 @@ pub fn read_lines(filename: &str) -> Result<Lines<BufReader<File>>> {
     Ok(f.lines())
 }
 
+pub fn read_string(filename: &str) -> Result<String> {
+    let mut file = File::open(filename)?;
+    let mut input = String::new();
+    file.read_to_string(&mut input)?;
+    Ok(input)
+}
+
 pub mod day1;
 pub mod day2;
 pub mod day3;
+pub mod day4;
